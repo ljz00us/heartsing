@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<title>heartSing</title>
+
+<!-- google fonts -->
+<link href='http://fonts.googleapis.com/css?family=Crafty+Girls|Waiting+for+the+Sunrise|Oswald:400,300|Josefin+Slab:300|Julius+Sans+One' rel='stylesheet' type='text/css'>
+
+<!-- Pure.css module -->
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+
+<!--local JS -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="static/javascript.js"></script>
+
+
+
+
+<body>
+    <div class=page>
+      <h1>heart<font color = "red">&nbsp;&hearts;&nbsp;Sing </font></h1>
+      <div class=metanav>
+      {% if user.email %}
+        <a href="{{ url_for('logout') }}">log out</a>
+      {% else %}
+        <a href="{{ url_for('login') }}">log in</a>
+      {% endif %}
+      </div>
+      {% for message in get_flashed_messages() %}
+        <div class=flash>{{ message }} </div>
+      {% endfor %}
+      {% block body %}{% endblock %}
+    </div>
+</body>
+
+
+
+</html>

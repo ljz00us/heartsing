@@ -1,0 +1,104 @@
+
+
+h1 {
+    font-family: 'Crafty Girls', serif;
+    margin: 0;
+    text-align: center;
+}
+
+
+h1 {
+    border-bottom: 3px solid #eee;
+    font-size: 3em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+p {
+   text-align: justify;
+    -moz-text-align-last: justify;
+    text-align-last: justify;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+/*<!-- google fonts -->*/
+/*<link href='http://fonts.googleapis.com/css?family=Crafty+Girls|
+Waiting+for+the+Sunrise|Oswald:400,300|Josefin+Slab:300|
+Julius+Sans+One' rel='stylesheet' type='text/css'>*/
+
+
+body {
+    font-family: 'Oswald', serif;
+    font-weight:lighter;
+}
+
+.circle {
+    width:50px;
+    height:50px;
+    border-radius:50px;
+    font-size:20px;
+    color:#fff;
+    line-height:50px;
+    text-align:center;
+    background:#D0D0D0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+textarea input {
+    border-radius:25px;
+}
+
+.page {
+    margin: 3em auto;
+    width: 35em;
+    border: 1px solid #ccc;
+    padding: 0.8em;
+    background: white;
+}
+
+.entries {
+   list-style: none;
+   margin: 0;
+   padding: 0;
+}
+
+.entries li {
+
+    text-align:center;
+}
+
+.entries li h2 {
+    /*margin-left:-1em;*/
+}
+
+.add-entry {
+    font-size:1.8em;
+    border-bottom:1px dotted #ccc;
+}
+
+.add-entry dl {
+    font-weight:700;
+}
+
+.metanav {
+text-align:right;
+font-size:.8em;
+margin-bottom:1em;
+background:#fafafa;
+padding:.3em;
+}
+
+.flash {
+background:#cee5F5;
+border:1px solid #aacbe2;
+padding:.5em;
+}
+
+.error {
+background:#f0d6d6;
+padding:.5em;
+}
