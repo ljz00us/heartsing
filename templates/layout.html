@@ -2,21 +2,26 @@
 
 <title>heartSing</title>
 
+<!--jquery -->
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.2.min.js"></script>
+
 <!-- google fonts -->
-<link href='http://fonts.googleapis.com/css?family=Crafty+Girls|Waiting+for+the+Sunrise|Oswald:400,300|Josefin+Slab:300|Julius+Sans+One' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Crafty+Girls|Waiting+for+the+Sunrise|Oswald:400,300|Amatic+SC|Julius+Sans+One' rel='stylesheet' type='text/css'>
+
+ <!--bootstrap -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
 <!-- Pure.css module -->
 <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
 
 <!--local JS -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="static/javascript.js"></script>
-
-
-
+<script src="../static/javascript.js"></script>
 
 <body>
+
     <div class=page>
       <h1>heart<font color = "red">&nbsp;&hearts;&nbsp;Sing </font></h1>
       <div class=metanav>
@@ -31,6 +36,7 @@
       {% endfor %}
       {% block body %}{% endblock %}
     </div>
+
 </body>
 
 

@@ -1,20 +1,67 @@
 {% extends "layout.html" %}
 {% block body %}
   {% if user.email %}
-    <form action="{{ url_for('add_post') }}" method=post class=add-entry>
-      <dl>
-        <dt>Title:
-        <dd><input type=text size=30 name=title>
-        <dt>Text:
-        <dd><textarea name=text rows=5 cols=40></textarea>
-        <dd><input type=submit value=Share>
-      </dl>
-    </form>
-  {% endif %}
+
+        <form action="{{ url_for('add_post') }}" method=post class=add-entry>
+              <dl>
+                <dt>Title:
+                <dd><input name=title type=text size=19 >
+                <dt>Text:
+                <dd><textarea name=text rows=5 cols=20></textarea>
+                <br>
+                <input type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg" value = "save"></input>
+              </dl>
+            </form>
+         {% endif %}
+
+        <!--modal-->
+              <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <p class="modal-text">The emotion was: </p></p><br><br>
+                            <p class = "pos_or_neg" style = "color:darkgreen">
+                            <input class="pos_or_neg" type=submit name=emotion value=positive></p>
+                            <br>
+                            <p class = "pos_or_neg" style = "color:red">
+                            <input class="pos_or_neg" type=submit name=emotion value=negative></p>
+                            <br><br>
+
+                       <p class="modal-text">It's intensity:</p><br><br>
+                        <select name=intensity>
+                            <option value = "1">1</option>
+                            <option value = "2">2</option>
+                            <option value = "3">3</option>
+                            <option value = "4">4</option>
+                            <option value = "5">5</option>
+                            <option value = "6">6</option>
+                            <option value = "7">7</option>
+                            <option value = "8">8</option>
+                            <option value = "9">9</option>
+                            <option value = "10">10</option>
+                        </select>
+
+                     </form>
+
+                     <br><br><br>
+
+                        <p class = "second-save-button"><input type=submit value=save data-dismiss="modal" class="modal-button"></p>
+
+                     <br><br><br>
+
+                        </div>
+                    </div>
+                </div>
+
+
   <ul class=entries>
   {% for post in posts %}
-    <li><h2>{{ post['title'] }}<div class = "circle">5</div></h2>
-        <p class = "text" style = "color:red">{{ post['text']|safe }}</p>
+        <li><h2>{{ post['title'] }} </h2>
+        <li><p class="emotion">Feeling: {{ post['emotion'] }} <br> Intensity: {{post['intensity']}}5 <br>
+        <li><p class = "text" style = "color:#152341">{{ post['text']|safe }}</p>
+        <li><a href = "#">edit post</a>
+        <br>*
+
+        <!--<div class = "circle">5</div></p></li>-->
   {% else %}
     <li><em>No posts.  Go write one! ;) !</em>
   {% endfor %}

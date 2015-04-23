@@ -1,5 +1,17 @@
+
+# dependencies:
+# Stormpath - for user login management
+# see https://devcenter.heroku.com/articles/stormpath
+# for good reference on this
+
+# Flask - for framework;
+
+# references:
+# https://stormpath.com/blog/build-a-flask-app-in-30-minutes/
+
 from datetime import datetime
 
+# flask imports
 from flask import (
     Flask,
     abort,
@@ -9,6 +21,7 @@ from flask import (
     request,
     url_for,
 )
+
 from flask.ext.stormpath import (
     StormpathError,
     StormpathManager,
@@ -19,24 +32,23 @@ from flask.ext.stormpath import (
     user,
 )
 
+# stormpath settings
 app = Flask(__name__)
 app.config['DEBUG'] = True
 app.config['SECRET_KEY'] = 'some_really_long_random_string_here'
 app.config['STORMPATH_API_KEY_FILE'] = 'apiKey.properties'
 app.config['STORMPATH_APPLICATION'] = 'heartsing'
 
+# custom settings
+app.config['STORMPATH_ENABLE_GIVEN_NAME'] = False
+app.config['STORMPATH_ENABLE_MIDDLE_NAME'] = False
+app.config['STORMPATH_ENABLE_SURNAME'] = False
+
 stormpath_manager = StormpathManager(app)
 
-# views below ---------------------------------------------------------------------------
-
+# views
+# show posts
 @app.route('/')
-
-# displays blog posts on front page
-# posts is a dictionary with {'date': , 'text': , 'title': }
-# if post is found, it is added to posts array
-# each post is sorted by date
-# returns show_post.html template, passing in posts array as input
-
 def show_posts():
     posts = []
     for account in stormpath_manager.application.accounts:
@@ -45,28 +57,24 @@ def show_posts():
     posts = sorted(posts, key=lambda k: k['date'], reverse=True)
     return render_template('show_posts.html', posts=posts)
 
-# add new posts if you're logged in
-
+# add posts
 @app.route('/add', methods=['POST'])
 @login_required
 def add_post():
     if not user.custom_data.get('posts'):
         user.custom_data['posts'] = []
-
-    user.custom_data['posts'].append({
-        'date': datetime.utcnow().isoformat(),
-        'title': request.form['title'],
-        'text': request.form['text'],
-    })
+        user.custom_data['posts'].append({
+            'date': datetime.utcnow().isoformat(),
+            'title': request.form['title'],
+            'text': request.form['text'],
+            # 'emotion':flask.request.form['emotion'],
+        })
     user.save()
-
     flash('New post successfully added.')
     return redirect(url_for('show_posts'))
 
+# login
 @app.route('/login', methods=['GET', 'POST'])
-
-# login and logout
-
 def login():
     error = None
 
@@ -85,14 +93,12 @@ def login():
 
     return render_template('login.html', error=error)
 
-
+# logout
 @app.route('/logout')
 def logout():
     logout_user()
     flash('You were logged out.')
 
     return redirect(url_for('show_posts'))
-
-
 if __name__ == '__main__':
     app.run()

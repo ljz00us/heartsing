@@ -4,16 +4,17 @@ h1 {
     font-family: 'Crafty Girls', serif;
     margin: 0;
     text-align: center;
-}
-
-
-h1 {
     border-bottom: 3px solid #eee;
-    font-size: 3em;
+    font-size: 4em;
 }
 
 h2 {
     font-size: 2em;
+}
+
+select option {
+    font-family: "Oswald", serif;
+    font-size:30px;
 }
 
 p {
@@ -22,6 +23,75 @@ p {
     text-align-last: justify;
     padding-left: 1em;
     padding-right: 1em;
+}
+
+p.emotion, p.intensity {
+    font-family: 'Amatic SC', cursive;
+    font-size:1.2em;
+    text-align:center;
+}
+
+p.modal-text {
+    font-size:1.6em;
+}
+
+p.second-save-button {
+    font-size:2.3em;
+    text-align: center;
+}
+
+p.edit-button {
+    font-size:2.3em;
+    text-align: center;
+}
+
+input[type=button], .modal-button {
+  -webkit-border-radius: 7;
+  -moz-border-radius: 7;
+  border-radius: 7px;
+  color: #463940;
+  font-size: 1.0em;
+  background: #ffffff;
+  padding: 10px 20px 10px 20px;
+  border: solid #005285 2px;
+  text-decoration: none;
+}
+
+input[type=button]:hover {
+  background: #0b4c75;
+  background-image: -webkit-linear-gradient(top, #0b4c75, #114669);
+  background-image: -moz-linear-gradient(top, #0b4c75, #114669);
+  background-image: -ms-linear-gradient(top, #0b4c75, #114669);
+  background-image: -o-linear-gradient(top, #0b4c75, #114669);
+  background-image: linear-gradient(to bottom, #0b4c75, #114669);
+  text-decoration: none;
+}
+
+img .face {
+    width:100px;
+    height:100px;
+}
+
+.edit-box {
+    border: 1px solid grey;
+    width:100px;
+    border-radius:5px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.modal-content {
+    text-align: center;
+    padding;3em;
+    padding-top: 2em;
+}
+
+a {
+    font-size:2em;
+}
+.modal-dialog {
+    width:20em;
 }
 
 /*<!-- google fonts -->*/
@@ -38,8 +108,8 @@ body {
 .circle {
     width:50px;
     height:50px;
-    border-radius:50px;
-    font-size:20px;
+    border-radius:20px;
+    font-size:30px;
     color:#fff;
     line-height:50px;
     text-align:center;
@@ -60,6 +130,11 @@ textarea input {
     background: white;
 }
 
+dl dd {
+    padding:0.2em;
+    font-size:1.8em;
+}
+
 .entries {
    list-style: none;
    margin: 0;
@@ -67,8 +142,8 @@ textarea input {
 }
 
 .entries li {
-
     text-align:center;
+    font-size:1.9em;
 }
 
 .entries li h2 {
@@ -76,12 +151,8 @@ textarea input {
 }
 
 .add-entry {
-    font-size:1.8em;
+    font-size:2em;
     border-bottom:1px dotted #ccc;
-}
-
-.add-entry dl {
-    font-weight:700;
 }
 
 .metanav {
@@ -101,4 +172,30 @@ padding:.5em;
 .error {
 background:#f0d6d6;
 padding:.5em;
+}
+
+/* --- modal styling --- */
+
+input.pos_or_neg {
+    width: 4em;
+    background: none;
+    cursor: pointer;
+    font-size:3.0em;
+    border:2px outset black;
+}
+
+input.pos_or_neg:hover {
+    background: lightgrey;
+}
+
+input.pos_or_neg::selection {
+    border:4px outset black;
+}
+
+select {
+    font-size:30px;
+}
+
+p.pos_or_neg {
+    text-align:center;   
 }
